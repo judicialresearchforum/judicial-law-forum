@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Judicial Firm</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  img { max-width: 100%; height: auto; }
+  @media (max-width: 640px) {
+    .modal-card { border-radius: 1.25rem; margin-top: 4.5rem; margin-bottom: 1rem; }
+  }
+</style>
+</head>
+
+
+<body class="bg-gray-50 text-gray-900 scroll-smooth overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+      <a href="#home" class="flex items-center gap-3 min-w-0">
+        <img src="sitaram.png" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover" alt="Judicial Law Forum logo">
+        <h1 class="text-lg sm:text-2xl font-bold leading-tight truncate">Judicial Law Forum</h1>
+      </a>
+
+      <button onclick="toggleMenu()" class="md:hidden text-3xl leading-none px-3 py-2 rounded-xl bg-white/10" aria-label="Open menu">☰</button>
+
+      <div class="hidden md:flex gap-6 font-medium">
+        <a href="#home" class="hover:text-gray-300">Home</a>
+        <a href="#practice" class="hover:text-gray-300">Practice Areas</a>
+        <a href="#team" class="hover:text-gray-300">Our Team</a>
+        <a href="#testimonials" class="hover:text-gray-300">Our Impact</a>
+        <a href="#gallery" class="hover:text-gray-300">Our Photos</a>
+        <a href="#contact" class="hover:text-gray-300">Contact Us</a>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-2 bg-slate-900 border-t border-white/10">
+      <a onclick="closeMenu()" href="#home" class="block py-3 px-4 rounded-xl hover:bg-white/10">Home</a>
+      <a onclick="closeMenu()" href="#practice" class="block py-3 px-4 rounded-xl hover:bg-white/10">Practice Areas</a>
+      <a onclick="closeMenu()" href="#team" class="block py-3 px-4 rounded-xl hover:bg-white/10">Our Team</a>
+      <a onclick="closeMenu()" href="#testimonials" class="block py-3 px-4 rounded-xl hover:bg-white/10">Our Impact</a>
+      <a onclick="closeMenu()" href="#gallery" class="block py-3 px-4 rounded-xl hover:bg-white/10">Photos</a>
+      <a onclick="closeMenu()" href="#contact" class="block py-3 px-4 rounded-xl hover:bg-white/10">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="bg-gradient-to-r from-slate-900 to-slate-700 text-white py-16 sm:py-20 md:py-24 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">Trusted Legal Service in Nepal</h2>
+        <p class="text-lg text-gray-300 mb-8">
+          Judicial Law Forum provides professional legal consultation, court representation,
+          legal documentation, and legal advisory services with integrity and dedication.
+        </p>
+
+        <div class="flex gap-4 flex-wrap">
+          
+          <a href="#contact" class="border border-white px-6 py-3 rounded-2xl w-full sm:w-auto text-center hover:bg-white hover:text-slate-900 transition">
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 shadow-xl">
+        <h3 class="text-2xl font-semibold mb-4">Emergency Legal Contact</h3>
+        <p class="text-3xl font-bold">+977-9851142944</p>
+        <p class="mt-4 text-sm text-gray-300">Immediate support for urgent legal matters and consultations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creative Practice Areas -->
+<section id="practice" class="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-gray-100 to-white">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+
+      <h2 class="text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+        Our Practice Areas
+      </h2>
+
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Explore our legal expertise and Case Analysis,
+        legal discussions, and courtroom insights directly
+        from our experienced advocates.
+      </p>
+
+    </div>
+
+    <!-- Cards -->
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+  <!-- Civil Law -->
+  <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold mb-3">Civil Law</h3>
+      <p class="text-gray-600 mb-5">
+        Legal consultation, disputes, contracts,
+        and court representation for civil matters.
+      </p>
+
+      <button
+        onclick="openCase('Civil Law', 'Civil law cases include contract disputes, compensation claims, civil rights issues, loan recovery, and court representation. We help clients understand their legal position, prepare documents, and handle the case step by step.')"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
+      >
+        📖 About this Case
+      </button>
+    </div>
+  </div>
+
+  <!-- Criminal Defense -->
+  <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold mb-3">Criminal Defense</h3>
+      <p class="text-gray-600 mb-5">
+        Expert legal defense and courtroom advocacy
+        for criminal legal cases.
+      </p>
+
+      <button
+        onclick="openCase('Criminal Defense', 'Criminal defense cases include police cases, bail matters, criminal accusations, investigation support, and courtroom defense. We focus on protecting client rights and preparing strong legal arguments.')"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
+      >
+        📖 About this Case
+      </button>
+    </div>
+  </div>
+
+  <!-- Family Law -->
+  <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold mb-3">Family Law</h3>
+      <p class="text-gray-600 mb-5">
+        Divorce settlements, child custody,
+        marriage disputes, and family guidance.
+      </p>
+
+      <button
+        onclick="openCase('Family Law', 'Family law cases include divorce, child custody, marriage disputes, domestic issues, partition, and family settlements. We guide clients with care, privacy, and proper legal procedure.')"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
+      >
+        📖 About this Case
+      </button>
+    </div>
+  </div>
+
+  <!-- Corporate Law -->
+  <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold mb-3">Corporate Law</h3>
+      <p class="text-gray-600 mb-5">
+        Company registration, business agreements,
+        and corporate legal advisory services.
+      </p>
+
+      <button
+        onclick="openCase('Corporate Law', 'Corporate law cases include company registration, business contracts, shareholder matters, tax-related documents, agreements, and legal advice for companies and organizations.')"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
+      >
+        📖 About this Case
+      </button>
+    </div>
+  </div>
+
+  <!-- Property Disputes -->
+  <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold mb-3">Property Disputes</h3>
+      <p class="text-gray-600 mb-5">
+        Land ownership conflicts, property cases,
+        and legal documentation support.
+      </p>
+
+      <button
+        onclick="openCase('Property Disputes', 'Property dispute cases include land ownership issues, boundary conflicts, partition cases, document verification, land transfer problems, and court cases related to property rights.')"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
+      >
+        📖 About this Case
+      </button>
+    </div>
+  </div>
+
+  <!-- Legal Documentation -->
+  <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold mb-3">Legal Documentation</h3>
+      <p class="text-gray-600 mb-5">
+        Professional drafting, agreements,
+        verification, and legal paperwork.
+      </p>
+
+      <button
+        onclick="openCase('Legal Documentation', 'Legal documentation services include drafting agreements, contracts, affidavits, power of attorney, legal notices, application letters, verification papers, and other official legal documents.')"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
+      >
+        📖 About this Case
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- About this Case Modal -->
+<div
+  id="caseModal"
+  class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 px-4"
+>
+  <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-7 relative">
+
+    <button
+      onclick="closeCase()"
+      class="absolute top-4 right-5 text-3xl font-bold text-gray-700 hover:text-red-600"
+    >
+      ×
+    </button>
+
+    <h2 id="caseTitle" class="text-3xl font-bold text-slate-900 mb-4"></h2>
+
+    <p id="caseDescription" class="text-gray-700 text-lg leading-relaxed"></p>
+
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+function openCase(title, description) {
+  document.getElementById("caseTitle").innerText = title;
+  document.getElementById("caseDescription").innerText = description;
+
+  document.getElementById("caseModal").classList.remove("hidden");
+  document.getElementById("caseModal").classList.add("flex");
+
+  document.body.style.overflow = "hidden";
+}
+
+function closeCase() {
+  document.getElementById("caseModal").classList.remove("flex");
+  document.getElementById("caseModal").classList.add("hidden");
+
+  document.body.style.overflow = "auto";
+}
+</script>
+
+</script>
+
+  <!-- Team -->
+<section id="team" class="py-14 sm:py-20 px-4 sm:px-6 bg-gray-100">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Our Legal Team</h2>
+      <p class="text-gray-600">Click on each member to view full biography.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div onclick="openModal('sitaramModal')" class="bg-white p-8 rounded-3xl shadow-lg text-center cursor-pointer hover:scale-105 transition duration-300">
+        <img src="sitaram.png" class="w-24 h-24 mx-auto mb-4 rounded-full">
+        <h3 class="text-2xl font-bold mb-2">Sitaram Adhikari</h3>
+        <p class="text-gray-600">Advocate</p>
+        <button class="mt-4 bg-slate-900 text-white px-5 py-2 rounded-xl">View Biography</button>
+      </div>
+
+      <div onclick="openModal('yashodaModal')" class="bg-white p-8 rounded-3xl shadow-lg text-center cursor-pointer hover:scale-105 transition duration-300">
+        <img src="yashoda.png" class="w-24 h-24 mx-auto mb-4 rounded-full">
+        <h3 class="text-2xl font-bold mb-2">Yashoda Devi Kharel</h3>
+        <p class="text-gray-600">Advocate</p>
+        <button class="mt-4 bg-slate-900 text-white px-5 py-2 rounded-xl">View Biography</button>
+      </div>
+
+      <div onclick="openModal('YuvraajModal')" class="bg-white p-8 rounded-3xl shadow-lg text-center cursor-pointer hover:scale-105 transition duration-300">
+        <img src="Yuvraajadhikari.png" class="w-24 h-24 mx-auto mb-4 rounded-full">
+        <h3 class="text-2xl font-bold mb-2">Yuvraaj Adhikari</h3>
+        <p class="text-gray-600">Legal Consultant</p>
+        <button class="mt-4 bg-slate-900 text-white px-5 py-2 rounded-xl">View Biography</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sitaram Biography Modal -->
+<div id="sitaramModal" class="fixed inset-0 bg-black/80 hidden items-start justify-center z-50 px-4 overflow-y-auto">
+
+  <button type="button" onclick="closeBiography('sitaramModal')" class="fixed top-6 right-8 text-white text-3xl sm:text-4xl md:text-5xl font-bold z-[9999] hover:text-red-400 transition">
+    ×
+  </button>
+
+  <div class="bg-white max-w-4xl w-full rounded-3xl modal-card shadow-2xl overflow-hidden relative my-10">
+
+    <div class="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-5 sm:p-8 md:p-10">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+
+        <img src="sitaram.png" class="w-28 h-28 sm:w-40 sm:h-40 rounded-full border-4 border-white shadow-xl">
+
+        <div>
+          <h2 class="text-3xl sm:text-4xl md:text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3">Sitaram Adhikari</h2>
+          <p class="text-xl text-gray-300 mb-4">Advocate</p>
+
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Criminal Law</span>
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Commercial Law</span>
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Mediation</span>
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Legal Consultation</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="p-5 sm:p-8 md:p-10 grid md:grid-cols-2 gap-10">
+
+      <div>
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Personal Information</h3>
+
+        <div class="space-y-3 text-gray-700 mb-8">
+          <p><b>Name:</b> Sitaram Adhikari</p>
+          <p><b>Designation:</b> Advocate</p>
+          <p><b>Advocate Reg. No.:</b> 6982</p>
+          <p><b>Issued Date:</b> 2057/07/26 B.S.</p>
+          <p><b>Date of Birth:</b> 2032/10/25 B.S.</p>
+          <p><b>Permanent Address:</b> Chaudandigadhi Municipality-10, Udayapur</p>
+          <p><b>Current Address:</b> Kathmandu Metropolitan City-11</p>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Biography</h3>
+
+        <p class="text-gray-700 leading-8 mb-8">
+          Sitaram Adhikari is an experienced advocate involved in legal practice
+          after receiving his advocate certificate. He has worked in court
+          representation, legal consultation, mediation, and legal documentation.
+          He is registered with the Nepal Bar Council and is also associated with
+          Judicial Rights Forum.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Education</h3>
+
+        <div class="space-y-5">
+
+           <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">SLC</h4>
+             <p class="text-gray-600">Shree Janta Secondary School, Hadiya,Udayapur</p>
+            <p class="text-gray-600">Passed Year: 2048 B.S. | Division: 2nd</p>
+          </div>
+
+           <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">I.L.</h4>
+            <p class="text-gray-600">Shree Mahendra Multiple Campus, Rajbiraj</p>
+            <p class="text-gray-600">Passed Year: 2051 B.S. | Division: 2nd</p>
+          </div>
+
+           <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">B.L.</h4>
+             <p class="text-gray-600">Nepal Law College, Rajbiraj</p>
+            <p class="text-gray-600">Passed Year: 2055 B.S. | Division: 2nd</p>
+          </div>
+
+           <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">M.A. Sociology</h4>
+            <p class="text-gray-600">Tri-Chandra Campus, Tribhuvan University</p>
+            
+          </div>
+
+          <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">LL.M.</h4>
+            <p class="text-gray-600">Criminal Law & Commercial Law</p>
+            <p class="text-gray-600">Nepal Law Campus, Tribhuvan University</p>
+          </div>
+
+         
+
+          
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Experience</h3>
+
+        <div class="space-y-5 mb-8">
+          <div class="border-l-4 border-slate-900 pl-5">
+            <h4 class="font-bold text-lg">Advocate Practice</h4>
+            <p class="text-gray-600">
+              Started legal practice after receiving advocate certificate from 2055 - present.
+            </p>
+          </div>
+
+          <div class="border-l-4 border-slate-900 pl-5">
+            <h4 class="font-bold text-lg">Case Experience</h4>
+            <p class="text-gray-600">
+              Conducted hearings in more than 2000 cases and delivered decisions
+              in around 500 summary cases.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Training</h3>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Mediation Training(मेलमिलाप)</div>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Mediation Training(मेलमिलाप)</div>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Mediation Training(मेलमिलाप)</div>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Mediation Training(मेलमिलाप)</div>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Mediation Training(मेलमिलाप)</div>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Publications</h3>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-gray-100 p-4 rounded-2xl">
+            नेपाल कानून पत्रिका
+          </div>
+          <div class="bg-gray-100 p-4 rounded-2xl">
+           बुलेटिन
+          </div>
+          <div class="bg-gray-100 p-4 rounded-2xl">
+            कानून पत्रिका, Issue 19, Page 35
+          </div>
+          <div class="bg-gray-100 p-4 rounded-2xl">
+            Nyaya Bikalpa Journal, High Court Bar Association, Patan (पुनरावेदन अदालत बार एशोसिएसन, पाटन), 2069
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Registration Details</h3>
+
+        <div class="space-y-3 text-gray-700 mb-8">
+          <p><b>Law Firm:</b> Judicial Research Forum</p>
+          <p><b>Registered At:</b> Nepal Bar Council</p>
+          <p><b>Registration Date:</b> 2070/09/30 B.S.</p>
+          <p><b>Registration No.:</b> 1051</p>
+          <p><b>PAN No.:</b> 601648793</p>
+          <p><b>Tax:</b> Paid Regularly</p>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Contact Information</h3>
+
+        <div class="space-y-3 text-gray-700">
+          <p>📞 9851142944</p>
+          <p>📍 Babarmahal-11, Kathmandu</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Yashoda Biography Modal -->
+<div id="yashodaModal" class="fixed inset-0 bg-black/80 hidden items-start justify-center z-50 px-4 overflow-y-auto">
+  <button type="button" onclick="closeBiography('yashodaModal')" class="fixed top-6 right-8 text-white text-3xl sm:text-4xl md:text-5xl font-bold z-[9999] hover:text-red-400 transition">
+    ×
+  </button>
+
+  <div class="bg-white max-w-4xl w-full rounded-3xl modal-card shadow-2xl overflow-hidden relative my-10">
+    <div class="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-5 sm:p-8 md:p-10">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <img src="yashoda.png" class="w-28 h-28 sm:w-40 sm:h-40 rounded-full border-4 border-white shadow-xl">
+
+        <div>
+          <h2 class="text-3xl sm:text-4xl md:text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3">Yashoda Devi Kharel (Adhikari)</h2>
+          <p class="text-xl text-gray-300 mb-4">Advocate</p>
+
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Women’s Rights</span>
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Gender Justice</span>
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Humanitarian Law</span>
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">Mediation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-5 sm:p-8 md:p-10 grid md:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Personal Information</h3>
+
+        <div class="space-y-3 text-gray-700 mb-8">
+          <p><b>Name:</b> Mrs. Yashoda Devi Kharel (Adhikari)</p>
+          <p><b>Father’s Name:</b> Mr. Agani Prased Kharel</p>
+          <p><b>Mother’s Name:</b> Mrs. Pabitra Kharel</p>
+          <p><b>Sex:</b> Female</p>
+          <p><b>Date of Birth:</b> 2032/08/12 B.S.</p>
+          <p><b>Marital Status:</b> Married</p>
+          <p><b>Nationality:</b> Nepali</p>
+          <p><b>Permanent Address:</b> Jhapa Municipality - 3</p>
+          <p><b>Temporary Address:</b> Babarmahal-11, Kathmandu</p>
+          <p><b>Language:</b> Nepali & English</p>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Biography</h3>
+
+        <p class="text-gray-700 leading-8 mb-8">
+          Yashoda Devi Kharel (Adhikari) is a Nepali legal professional with
+          academic qualifications in law and experience as an advocate. She has
+          received national and international training in gender justice,
+          humanitarian law, women lawyers’ training, mediation skills, and civil
+          and criminal code.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Education</h3>
+
+        <div class="space-y-5">
+          <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">SLC</h4>
+            <p class="text-gray-600">SLC Board of Nepal</p>
+            <p class="text-gray-600">Passed Year: 2050 B.S. | Division: 2nd</p>
+          </div>
+
+          <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">I.L.</h4>
+            <p class="text-gray-600">Machi Campus, Jhapa</p>
+            <p class="text-gray-600">Passed Year: 2053 B.S. | Division: 2nd</p>
+          </div>
+
+          <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">B.L.</h4>
+            <p class="text-gray-600">T.U.</p>
+            <p class="text-gray-600">Passed Year: 2057 | Division: 2nd</p>
+          </div>
+
+          <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">LLM</h4>
+            <p class="text-gray-600">P.U.</p>
+            <p class="text-gray-600">Passed Year: 2079 | Division: 2nd</p>
+          </div>
+
+          <div class="bg-gray-100 p-5 rounded-2xl">
+            <h4 class="font-bold text-lg">Advocate</h4>
+            <p class="text-gray-600">N.B.A.</p>
+            <p class="text-gray-600">Year: 2004</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Experience</h3>
+
+        <div class="space-y-5 mb-8">
+          <div class="border-l-4 border-slate-900 pl-5">
+            <h4 class="font-bold text-lg">Advocate</h4>
+            <p class="text-gray-600">N.B.A. • 2004</p>
+          </div>
+
+          <div class="border-l-4 border-slate-900 pl-5">
+            <h4 class="font-bold text-lg">Legal Practice & Consultation</h4>
+            <p class="text-gray-600">
+              Experienced in legal work, women’s rights, gender justice,
+              humanitarian law, mediation, and civil and criminal code training.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">National & International Training</h3>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Gender Equity for Justice and Peace Building - 2005</div>
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">International Humanitarian Law - 2006</div>
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Basic Training to Women Lawyer - 2006</div>
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Gender Based Violence and Gender Justice - 2010</div>
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Court Referred Mediation Knowledge and Skills - 2010</div>
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Nepal Women Lawyers International Training - 2018</div>
+          <div class="bg-slate-900 text-white p-4 rounded-2xl">Training of Civil and Criminal Code - 2019</div>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-5 text-slate-900">Contact Information</h3>
+
+        <div class="space-y-3 text-gray-700">
+          <p>📞 9841484268</p>
+          <p>📍 Babarmahal-11, Kathmandu</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Yuvraaj ADHIKARI MODAL -->
+<div id="YuvraajModal"
+  class="fixed inset-0 bg-black/80 hidden items-start justify-center z-50 px-4 py-10 overflow-y-auto">
+
+  <!-- CLOSE BUTTON -->
+  <button type="button"
+    onclick="closeBiography('YuvraajModal')"
+    class="fixed top-6 right-8 text-white text-3xl sm:text-4xl md:text-5xl font-bold z-[9999] hover:text-red-400 transition">
+    ×
+  </button>
+
+  <!-- MODAL BOX -->
+  <div class="bg-white max-w-6xl w-full rounded-3xl modal-card shadow-2xl overflow-hidden relative my-10">
+
+    <!-- HEADER -->
+    <div class="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-5 sm:p-8 md:p-10">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+
+        <!-- PROFILE IMAGE -->
+        <img src="Yuvraajadhikari.png"
+          class="w-28 h-28 sm:w-40 sm:h-40 rounded-full border-4 border-white shadow-xl object-cover">
+
+        <!-- TITLE -->
+        <div>
+
+          <h2 class="text-4xl md:text-3xl sm:text-4xl md:text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3">
+            Yuvraaj Adhikari
+          </h2>
+
+          <p class="text-xl text-gray-300 mb-5">
+            Legal Assistant & Law Consultant
+          </p>
+
+          <!-- TAGS -->
+          <div class="flex flex-wrap gap-3">
+
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">
+              Legal Documentation
+            </span>
+
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">
+              Law Consultant
+            </span>
+
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">
+              Legal Structure Support
+            </span>
+
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">
+              LL.B Student
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="p-6 md:p-5 sm:p-8 md:p-10 grid md:grid-cols-2 gap-12">
+
+      <!-- LEFT SIDE -->
+      <div>
+
+        <!-- PERSONAL INFO -->
+        <h3 class="text-3xl font-bold mb-6 text-slate-900">
+          Personal Information
+        </h3>
+
+        <div class="space-y-4 text-gray-700 mb-12 text-lg">
+
+          <p>
+            <span class="font-bold text-slate-900">Name:</span>
+            Yuvraaj Adhikari
+          </p>
+
+          <p>
+            <span class="font-bold text-slate-900">Father’s Name:</span>
+            Bhupendra Adhikari
+          </p>
+
+          <p>
+            <span class="font-bold text-slate-900">Mother’s Name:</span>
+            Maya Devi Adhikari
+          </p>
+
+          <p>
+            <span class="font-bold text-slate-900">Date of Birth:</span>
+            2049/12/02 B.S.
+          </p>
+
+          <p>
+            <span class="font-bold text-slate-900">Profession:</span>
+            Law Consultant
+          </p>
+
+          <p>
+            <span class="font-bold text-slate-900">Permanent Address:</span>
+            Chaudandigadhi Municipality-10, Udayapur
+          </p>
+
+          <p>
+            <span class="font-bold text-slate-900">Present Address:</span>
+            Thimi, Bhaktapur
+          </p>
+
+        </div>
+
+        <!-- BIOGRAPHY -->
+        <h3 class="text-3xl font-bold mb-6 text-slate-900">
+          Biography
+        </h3>
+
+        <p class="text-gray-700 leading-10 mb-12 text-lg">
+          Yuvraaj Adhikari is a passionate legal consultant and law student
+          currently pursuing his LL.B degree. With experience assisting 
+          legal professionals including Sitaram Adhikari and Yashoda Devi
+          Kharel, he has contributed in legal documentation, case structure
+          preparation, legal assistance, and organizational support. His strong
+          academic background and dedication toward the legal field continue to
+          strengthen his professional journey in advocacy and legal consultation.
+        </p>
+
+        <!-- EDUCATION -->
+        <h3 class="text-3xl font-bold mb-6 text-slate-900">
+          Education
+        </h3>
+
+        <div class="space-y-5">
+
+          <div class="bg-gray-100 p-6 rounded-2xl shadow-sm">
+            <h4 class="font-bold text-xl text-slate-900 mb-2">
+              SLC
+            </h4>
+
+            <p class="text-gray-600">
+              Gobardhan Bairagi Higher Secondary School
+            </p>
+          </div>
+
+          <div class="bg-gray-100 p-6 rounded-2xl shadow-sm">
+            <h4 class="font-bold text-xl text-slate-900 mb-2">
+              +2
+            </h4>
+
+            <p class="text-gray-600">
+              Janapremi College, Bhaktapur
+            </p>
+
+            <p class="text-gray-500 mt-1">
+              Passed Year: 2068 B.S.
+            </p>
+          </div>
+
+          <div class="bg-gray-100 p-6 rounded-2xl shadow-sm">
+            <h4 class="font-bold text-xl text-slate-900 mb-2">
+              Bachelor Degree
+            </h4>
+
+            <p class="text-gray-600">
+              Baneshwor Bahumukhi Campus
+            </p>
+
+            <p class="text-gray-500 mt-1">
+              Completed Year: 2074 B.S.
+            </p>
+          </div>
+
+          <div class="bg-gray-100 p-6 rounded-2xl shadow-sm">
+            <h4 class="font-bold text-xl text-slate-900 mb-2">
+              LL.B (Running)
+            </h4>
+
+            <p class="text-gray-600">
+              Currently Studying Law
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div>
+
+        <!-- EXPERIENCE -->
+        <h3 class="text-3xl font-bold mb-6 text-slate-900">
+          Experience
+        </h3>
+
+        <div class="space-y-6 mb-12">
+
+          <div class="border-l-4 border-slate-900 pl-5">
+            <h4 class="font-bold text-xl text-slate-900">
+              Legal Assistant
+            </h4>
+
+            <p class="text-gray-600 mt-1 text-lg">
+              Assisted senior advocates in legal support and consultation.
+            </p>
+          </div>
+
+          <div class="border-l-4 border-slate-900 pl-5">
+            <h4 class="font-bold text-xl text-slate-900">
+              Legal Documentation & Structure Support
+            </h4>
+
+            <p class="text-gray-600 mt-1 text-lg leading-8">
+              Helping Sitaram Adhikari and Yashoda Devi Kharel in legal
+              documentation, registration processes, structure creation,
+              and legal office assistance.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- SKILLS -->
+        <h3 class="text-3xl font-bold mb-6 text-slate-900">
+          Skills & Expertise
+        </h3>
+
+        <div class="space-y-5 mb-12">
+
+          <div class="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 rounded-3xl shadow-lg text-lg">
+            Legal Documentation
+          </div>
+
+          <div class="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 rounded-3xl shadow-lg text-lg">
+            Case Structure Preparation
+          </div>
+
+          <div class="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 rounded-3xl shadow-lg text-lg">
+            Legal Consultation Support
+          </div>
+
+          <div class="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 rounded-3xl shadow-lg text-lg">
+            Office & Registration Assistance
+          </div>
+
+        </div>
+
+        <!-- CONTACT -->
+        <h3 class="text-3xl font-bold mb-6 text-slate-900">
+          Contact Information
+        </h3>
+
+        <div class="space-y-4 text-gray-700 text-lg">
+
+          <p class="flex items-center gap-3">
+            📧 yuvme123@gmail.com
+          </p>
+
+          <p class="flex items-center gap-3">
+            📞 +977-9843700027
+          </p>
+
+          <p class="flex items-center gap-3">
+            📍 Kathmandu, Nepal
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  function openModal(id) {
+
+    const modal = document.getElementById(id);
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal(id) {
+
+    const modal = document.getElementById(id);
+
+    modal.classList.remove("flex");
+    modal.classList.add("hidden");
+
+    document.body.style.overflow = "auto";
+  }
+
+  function closeBiography(id) {
+
+    closeModal(id);
+
+    const ourTeam = document.getElementById("team");
+
+    if (ourTeam) {
+
+      ourTeam.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    } else {
+
+      window.location.hash = "team";
+
+    }
+
+  }
+
+</script>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="bg-slate-900 text-white py-14 sm:py-20 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-12">Client Reviews</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white/10 p-6 rounded-3xl">
+          <p>"Excellent legal support and professional service."</p>
+          <h3 class="font-bold mt-4">Trilochan Kadriya</h3>
+        </div>
+
+        <div class="bg-white/10 p-6 rounded-3xl">
+          <p>"Very reliable advocates with excellent consultation."</p>
+          <h3 class="font-bold mt-4">Dharma Upreti</h3>
+        </div>
+
+        <div class="bg-white/10 p-6 rounded-3xl">
+          <p>"Brilliant legal minds who deliver strategic solutions and exceptional outcomes every single time."</p>
+          <h3 class="font-bold mt-4">Subash Adhikari</h3>
+        </div>
+
+        <div class="bg-white/10 p-6 rounded-3xl">
+          <p>"A deeply trusted law firm that combines exceptional legal expertise with a genuinely supportive approach."</p>
+          <h3 class="font-bold mt-4">Gokul Shrestha</h3>
+        </div>
+
+        <div class="bg-white/10 p-6 rounded-3xl">
+          <p>"Highly professional legal team with unmatched integrity and dedication to their clients."</p>
+          <h3 class="font-bold mt-4">Ashutosh Adhikari</h3>
+        </div>
+
+        <div class="bg-white/10 p-6 rounded-3xl">
+          <p>"Quick response during emergency legal matters."</p>
+          <h3 class="font-bold mt-4">Surya Khadka</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+
+  <!-- PHOTO GALLERY -->
+<section id="gallery" class="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-stone-100 via-white to-stone-200 overflow-hidden">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+
+      <h2 class="text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-800 mb-5 tracking-wide">
+        Our Gallery
+      </h2>
+
+      <p class="text-lg text-stone-600 max-w-2xl mx-auto leading-8">
+        Capturing memorable legal moments, professional achievements,
+        conferences, consultations, and courtroom excellence.
+      </p>
+
+    </div>
+
+    <!-- Masonry Style Gallery -->
+    <div id="photoGallery" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-5 space-y-5">
+
+      <!-- PHOTO 1 -->
+      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
+
+        <img src="photos/1.jpg"
+          class="w-full object-cover transition duration-500 group-hover:scale-110">
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+
+      </div>
+
+      <!-- PHOTO 2 -->
+      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
+
+        <img src="photos/2.jpg"
+          class="w-full object-cover transition duration-500 group-hover:scale-110">
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+
+      </div>
+
+      <!-- PHOTO 3 -->
+      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
+
+        <img src="photos/3.jpg"
+          class="w-full object-cover transition duration-500 group-hover:scale-110">
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+
+      </div>
+
+      <!-- PHOTO 4 -->
+      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
+
+        <img src="photos/4.jpg"
+          class="w-full object-cover transition duration-500 group-hover:scale-110">
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+
+      </div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="text-center mt-16">
+
+      <button
+        onclick="loadMorePhotos()"
+        class="bg-stone-800 hover:bg-stone-700 text-white px-8 sm:px-10 py-4 rounded-full text-base sm:text-lg font-semibold shadow-xl transition duration-300">
+        View More Memories
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <script>
+    let currentPhoto = 1;
+    let loadedPhotos = 4;
+    const totalPhotos = 500;
+    const photosPerLoad = 24;
+
+    function createPhotoCard(photoNumber) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "break-inside-avoid group relative overflow-hidden rounded-3xl bg-white/10 border border-white/10 shadow-2xl cursor-pointer mb-5 hover:-translate-y-2 transition duration-300";
+      wrapper.onclick = function () {
+        openPhoto(photoNumber);
+      };
+
+      wrapper.innerHTML = `
+        <img
+          src="photos/${photoNumber}.jpg"
+          alt="Gallery Photo ${photoNumber}"
+          class="w-full object-cover group-hover:scale-110 transition duration-700"
+          loading="lazy"
+          onerror="this.parentElement.style.display='none'"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300">
+          <p class="text-white font-bold text-lg">Photo ${photoNumber}</p>
+          <p class="text-gray-300 text-sm">Click to view full size</p>
+        </div>
+      `;
+
+      return wrapper;
+    }
+
+    function loadMorePhotos() {
+      const gallery = document.getElementById("photoGallery");
+      const start = loadedPhotos + 1;
+      const end = Math.min(loadedPhotos + photosPerLoad, totalPhotos);
+
+      for (let i = start; i <= end; i++) {
+        gallery.appendChild(createPhotoCard(i));
+      }
+
+      loadedPhotos = end;
+    }
+
+    function openPhoto(photoNumber) {
+      currentPhoto = photoNumber;
+      document.getElementById("lightboxImage").src = `photos/${photoNumber}.jpg`;
+      document.getElementById("photoNumber").innerText = `Photo ${photoNumber} of ${totalPhotos}`;
+      document.getElementById("photoLightbox").classList.remove("hidden");
+      document.getElementById("photoLightbox").classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePhoto() {
+      document.getElementById("photoLightbox").classList.remove("flex");
+      document.getElementById("photoLightbox").classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+
+    function nextPhoto() {
+      currentPhoto = currentPhoto >= totalPhotos ? 1 : currentPhoto + 1;
+      openPhoto(currentPhoto);
+    }
+
+    function previousPhoto() {
+      currentPhoto = currentPhoto <= 1 ? totalPhotos : currentPhoto - 1;
+      openPhoto(currentPhoto);
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closePhoto();
+      if (event.key === "ArrowRight") nextPhoto();
+      if (event.key === "ArrowLeft") previousPhoto();
+    });
+
+    document.addEventListener("DOMContentLoaded", loadMorePhotos);
+  </script>
+
+
+<!-- PHOTO LIGHTBOX -->
+<div id="photoLightbox" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999] p-4">
+  <button onclick="closePhoto()" class="absolute top-4 right-5 text-white text-4xl sm:text-5xl font-bold hover:text-red-400">×</button>
+  <button onclick="previousPhoto()" class="absolute left-3 sm:left-8 text-white text-4xl sm:text-6xl font-bold bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16">‹</button>
+  <div class="w-full max-w-5xl text-center">
+    <img id="lightboxImage" src="" alt="Gallery full photo" class="max-h-[78vh] mx-auto rounded-2xl shadow-2xl object-contain">
+    <p id="photoNumber" class="text-white mt-4 text-sm sm:text-lg"></p>
+  </div>
+  <button onclick="nextPhoto()" class="absolute right-3 sm:right-8 text-white text-4xl sm:text-6xl font-bold bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16">›</button>
+</div>
+
+  <!-- Contact -->
+  <section id="contact" class="py-14 sm:py-20 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 md:gap-10">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">Contact Us</h2>
+        <p class="text-gray-600 mb-4">Reach out to Judicial Law Forum for legal consultation and support.</p>
+
+        <div class="space-y-4 text-lg">
+          <div class="space-y-4 text-lg">
+
+  <!-- PHONE -->
+  <a
+    href="tel:+9779851142944"
+    class="flex items-center gap-4 hover:text-green-700 transition"
+  >
+    <span class="text-2xl">📞</span>
+
+    <div>
+      <strong>Phone:</strong> +977-9851142944
+    </div>
+  </a>
+
+  <!-- VIBER -->
+  <a
+    href="viber://chat?number=%2B9779851142944"
+    class="flex items-center gap-4 hover:text-purple-700 transition"
+  >
+  <a
+    href="viber://chat?number=%2B9779841484268"
+    class="flex items-center gap-4 hover:text-purple-700 transition"
+  >
+    <span class="text-2xl">🟣</span>
+
+    <div>
+      <strong>Viber:</strong> +977-9851142944/9841484268
+    </div>
+  </a>
+
+  <!-- EMAIL -->
+  <a
+    href="mailto:judicialresearchforum26@gmail.com"
+    class="flex items-center gap-4 hover:text-blue-700 transition"
+  >
+    <span class="text-2xl">✉️</span>
+
+    <div>
+      <strong>Email:</strong> judicialresearchforum26@gmail.com
+    </div>
+  </a>
+
+  <!-- LOCATION -->
+  <p>
+    <strong>Office:</strong> Babarmahal-11,Kathmandu
+  </p>
+
+  <!-- EMERGENCY -->
+  <p>
+    <strong>Emergency:</strong> Available 24/7
+  </p>
+
+</div>
+          
+        </div>
+      </div>
+
+      <form action="/contact" method="POST">
+  <input type="text" name="name" placeholder="Your Name" class="w-full border p-4 rounded-2xl" required>
+
+  <input type="email" name="email" placeholder="Your Email" class="w-full border p-4 rounded-2xl" required>
+
+  <textarea name="message" rows="5" placeholder="Your Message" class="w-full border p-4 rounded-2xl" required></textarea>
+
+  <button type="submit" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-semibold hover:bg-slate-700 transition">
+    Send Message
+  </button>
+</form>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/9779851142944" target="_blank" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  ">💬</a>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-8 text-center text-sm">
+    <p>© 2026 Judicial Law Forum. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.remove("hidden");
+      document.getElementById(id).classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove("flex");
+      document.getElementById(id).classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+
+    function closeModalAndGoHome(id) {
+      closeModal(id);
+      document.getElementById("home").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  </script>
+ 
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    }
+    function closeMenu() {
+      document.getElementById("mobileMenu").classList.add("hidden");
+    }
+  </script>
+
+</body>
+</html>
