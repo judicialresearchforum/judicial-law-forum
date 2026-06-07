@@ -9,23 +9,24 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Connect frontend folder
-app.use(express.static(path.join(__dirname, "../public")));
+// Serve frontend files from public folder
+app.use(express.static(path.join(__dirname, "public")));
 
+// Contact Form Route
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-  user: process.env.EMAIL_USER,
-  pass: process.env.EMAIL_PASS
-}
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
   });
 
   const mailOptions = {
-    from: process.env.judicialresearchforum26@gmail.com,
-    to: process.env.judicialresearchforum26@gmail.com,
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
     replyTo: email,
     subject: "New Contact Message from Judicial Law Firm Website",
     html: `
@@ -38,17 +39,19 @@ app.post("/contact", async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.send("Message sent successfully");
+    res.status(200).send("Message sent successfully");
   } catch (error) {
-    console.log(error);
+    console.error("Email Error:", error);
     res.status(500).send("Error sending message");
   }
 });
 
+// Home Route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+// Start Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
