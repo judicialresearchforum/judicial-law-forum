@@ -94,7 +94,7 @@
 
     </div>
 
-    <!-- Cards -->
+   <!-- Cards -->
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
   <!-- Civil Law -->
@@ -102,31 +102,26 @@
     <div class="p-6">
       <h3 class="text-2xl font-bold mb-3">Civil Law</h3>
       <p class="text-gray-600 mb-5">
-        Legal consultation, disputes, contracts,
-        and court representation for civil matters.
+        Legal consultation, disputes, contracts, and court representation for civil matters.
       </p>
 
-      <button
-        onclick="openCase('Civil Law', 'Civil law cases include contract disputes, compensation claims, civil rights issues, loan recovery, and court representation. We help clients understand their legal position, prepare documents, and handle the case step by step.')"
-        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
-      >
+      <button onclick="openCase('Civil Law', caseDetails.civil)"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full">
         📖 About this Case
       </button>
     </div>
   </div>
+
   <!-- Criminal Defense -->
   <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300">
     <div class="p-6">
       <h3 class="text-2xl font-bold mb-3">Criminal Defense</h3>
       <p class="text-gray-600 mb-5">
-        Expert legal defense and courtroom advocacy
-        for criminal legal cases.
+        Expert legal defense and courtroom advocacy for criminal legal cases.
       </p>
 
-      <button
-        onclick="openCase('Criminal Defense', 'Criminal defense cases include police cases, bail matters, criminal accusations, investigation support, and courtroom defense. We focus on protecting client rights and preparing strong legal arguments.')"
-        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
-      >
+      <button onclick="openCase('Criminal Defense', caseDetails.criminal)"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full">
         📖 About this Case
       </button>
     </div>
@@ -137,14 +132,11 @@
     <div class="p-6">
       <h3 class="text-2xl font-bold mb-3">Family Law</h3>
       <p class="text-gray-600 mb-5">
-        Divorce settlements, child custody,
-        marriage disputes, and family guidance.
+        Divorce settlements, child custody, marriage disputes, and family guidance.
       </p>
 
-      <button
-        onclick="openCase('Family Law', 'Family law cases include divorce, child custody, marriage disputes, domestic issues, partition, and family settlements. We guide clients with care, privacy, and proper legal procedure.')"
-        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
-      >
+      <button onclick="openCase('Family Law', caseDetails.family)"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full">
         📖 About this Case
       </button>
     </div>
@@ -155,14 +147,11 @@
     <div class="p-6">
       <h3 class="text-2xl font-bold mb-3">Corporate Law</h3>
       <p class="text-gray-600 mb-5">
-        Company registration, business agreements,
-        and corporate legal advisory services.
+        Company registration, business agreements, and corporate legal advisory services.
       </p>
 
-      <button
-        onclick="openCase('Corporate Law', 'Corporate law cases include company registration, business contracts, shareholder matters, tax-related documents, agreements, and legal advice for companies and organizations.')"
-        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
-      >
+      <button onclick="openCase('Corporate Law', caseDetails.corporate)"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full">
         📖 About this Case
       </button>
     </div>
@@ -173,14 +162,11 @@
     <div class="p-6">
       <h3 class="text-2xl font-bold mb-3">Property Disputes</h3>
       <p class="text-gray-600 mb-5">
-        Land ownership conflicts, property cases,
-        and legal documentation support.
+        Land ownership conflicts, property cases, and legal documentation support.
       </p>
 
-      <button
-        onclick="openCase('Property Disputes', 'Property dispute cases include land ownership issues, boundary conflicts, partition cases, document verification, land transfer problems, and court cases related to property rights.')"
-        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
-      >
+      <button onclick="openCase('Property Disputes', caseDetails.property)"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full">
         📖 About this Case
       </button>
     </div>
@@ -191,14 +177,11 @@
     <div class="p-6">
       <h3 class="text-2xl font-bold mb-3">Legal Documentation</h3>
       <p class="text-gray-600 mb-5">
-        Professional drafting, agreements,
-        verification, and legal paperwork.
+        Professional drafting, agreements, verification, and legal paperwork.
       </p>
 
-      <button
-        onclick="openCase('Legal Documentation', 'Legal documentation services include drafting agreements, contracts, affidavits, power of attorney, legal notices, application letters, verification papers, and other official legal documents.')"
-        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full"
-      >
+      <button onclick="openCase('Legal Documentation', caseDetails.documentation)"
+        class="bg-slate-900 hover:bg-slate-700 text-white px-6 py-3 rounded-2xl font-semibold w-full">
         📖 About this Case
       </button>
     </div>
@@ -209,44 +192,907 @@
 <!-- About this Case Modal -->
 <div
   id="caseModal"
-  class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 px-4"
+  class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[9999] px-4 py-6"
 >
-  <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-7 relative">
+  <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[85vh] relative overflow-hidden">
 
-    <button
-      onclick="closeCase()"
-      class="absolute top-4 right-5 text-3xl font-bold text-gray-700 hover:text-red-600"
-    >
-      ×
-    </button>
+    <!-- Header -->
+    <div class="bg-slate-900 text-white px-6 py-5 flex items-center justify-between">
+      <h2 id="caseTitle" class="text-2xl md:text-3xl font-bold"></h2>
 
-    <h2 id="caseTitle" class="text-3xl font-bold text-slate-900 mb-4"></h2>
+      <button
+        onclick="closeCase()"
+        class="text-4xl font-bold hover:text-red-400 transition leading-none"
+      >
+        ×
+      </button>
+    </div>
 
-    <p id="caseDescription" class="text-gray-700 text-lg leading-relaxed"></p>
+    <!-- Scrollable Content -->
+    <div
+      id="caseDescription"
+      class="p-6 md:p-8 text-gray-700 text-base md:text-lg leading-relaxed overflow-y-auto max-h-[70vh] whitespace-pre-line"
+    ></div>
 
   </div>
 </div>
 
 <!-- JavaScript -->
 <script>
+const caseDetails = {
+  civil: `
+Civil Law refers to the branch of law that governs disputes between private individuals, organizations, or institutions where the matter does not involve criminal wrongdoing. It is designed to resolve conflicts, define rights and obligations, and provide remedies such as compensation or enforcement of agreements.
+
+In a judiciary context, civil law plays a foundational role in ensuring justice in everyday legal relationships and maintaining trust in contractual, familial, and property systems.
+
+⸻⸻⸻⸻
+
+Civil law is structured around the protection and enforcement of private rights. Its main characteristics include:
+
+• Private disputes: It deals with conflicts between individuals, companies, or organizations.
+• No criminal punishment: The aim is not punishment but resolution and compensation.
+• Burden of proof: Typically based on “balance of probabilities” rather than “beyond reasonable doubt.”
+• Remedies-focused: Courts usually provide compensation, injunctions, or enforcement orders.
+• Party-driven process: Cases are initiated by the affected party, not the state.
+
+⸻⸻⸻⸻
+
+Major Areas:
+
+1. Contract Law
+• Breach of agreement
+• Business and service contracts
+• Employment disputes
+• Loan and financial agreements
+
+2. Property Law
+• Land ownership disputes
+• Tenancy and lease issues
+• Boundary conflicts
+• Property transfer disputes
+
+3. Family Law
+• Divorce and separation
+• Child custody and guardianship
+• Inheritance and succession
+• Maintenance and alimony
+
+4. Tort Law / Civil Wrongs
+• Negligence claims
+• Damages for injury or loss
+• Defamation cases
+• Compensation claims
+
+5. Commercial Disputes
+• Business partnerships
+• Debt recovery
+• Corporate disagreements
+• Contract enforcement
+
+⸻⸻⸻⸻
+
+Civil Law in Nepal: Judiciary Perspective
+
+In Nepal, civil law forms a crucial part of the judicial system and is governed through statutory laws, procedural codes, and constitutional principles.
+
+Role in Nepal’s Judicial System:
+
+• Civil disputes are handled by District Courts as the first point of litigation.
+• Appeals are heard by High Courts.
+• Further review can be taken to the Supreme Court of Nepal.
+• The judiciary protects civil rights under the Constitution of Nepal.
+
+⸻⸻⸻⸻
+
+Key Civil Law Framework in Nepal:
+
+1. National Civil Code, 2017 / Muluki Dewani Samhita
+• Governs contracts, property, family relations, obligations, inheritance, and private rights.
+
+2. Civil Procedure Code
+• Defines how civil cases are filed, heard, decided, and enforced in court.
+
+3. Constitution of Nepal, 2015
+• Guarantees fundamental rights that often become the basis of civil claims.
+
+⸻⸻⸻⸻
+
+Common Civil Cases in Nepal:
+
+• Land and property boundary disputes
+• Family disputes such as divorce, alimony, custody, and guardianship
+• Contract enforcement and unpaid debts
+• Inheritance conflicts among family members
+• Housing and tenancy disagreements
+• Property partition and ancestral property disputes
+• Compensation and civil injury claims
+
+
+Civil Law in Other Countries:
+
+Common Law Countries such as UK, USA, and India:
+
+• Civil law develops through statutes and judicial precedents.
+• Courts play a strong role in interpreting laws.
+• Legal flexibility is higher due to precedent-based reasoning.
+
+Civil Law Countries such as France and Germany:
+
+• Laws are codified into structured legal codes.
+• Judges primarily apply written law.
+• Procedures are more standardized and systematic.
+
+⸻⸻⸻⸻
+
+Nepal’s Position:
+
+• Nepal follows a mixed legal system.
+• It has strong codified laws influenced by civil law tradition.
+• It also uses judicial interpretations and precedents influenced by common law.
+• This hybrid structure allows flexibility while maintaining legal clarity.
+
+⸻⸻⸻⸻
+
+Our Civil Law Services:
+
+• Property and land disputes
+• Contract drafting and review
+• Debt recovery
+• Family and divorce matters
+• Inheritance and succession cases
+• Commercial disputes
+• Legal consultation and representation
+• Court documentation and filing
+• Mediation and settlement support
+
+Justice begins with understanding your rights.
+  `,
+
+  criminal: `
+Criminal Law is a branch of law that deals with conduct considered harmful to society, the state, or public order. Unlike civil law, criminal law focuses on punishing offenders, deterring future crimes, and maintaining social security through enforcement of legal standards.
+
+In a judiciary context, criminal law is one of the most critical pillars of justice, as it directly addresses offenses that threaten life, liberty, property, and public safety.
+
+⸻⸻⸻⸻
+
+Key Features of Criminal Law
+
+Criminal law is distinct in its purpose, process, and consequences:
+
+• State vs. Individual: The government prosecutes the accused on behalf of society.
+• Punishment-focused: Penalties may include imprisonment, fines, or corrective measures.
+• Higher burden of proof: Guilt must be proven “beyond reasonable doubt.”
+• Public interest: Crimes are considered offenses against society, not just individuals.
+• Strict procedures: Due process and constitutional safeguards are essential.
+
+⸻⸻⸻⸻
+
+Major Categories of Criminal Law
+
+1. Offenses Against Persons
+
+• Murder and homicide
+• Assault and battery
+• Domestic violence
+• Kidnapping and abduction
+
+2. Offenses Against Property
+
+• Theft and burglary
+• Robbery
+• Fraud and embezzlement
+• Arson
+
+3. Public Order Offenses
+
+• Rioting and unlawful assembly
+• Terrorism-related offenses
+• Public disturbance cases
+• Drug trafficking and abuse
+
+4. White-Collar Crimes
+
+• Corruption and bribery
+• Tax evasion
+• Financial fraud
+• Cybercrime and identity theft
+
+⸻⸻⸻⸻
+
+Criminal Law in Nepal: Judiciary Perspective
+
+In Nepal, criminal law is a vital component of the justice system and is governed through codified laws, constitutional provisions, and judicial interpretation.
+
+Judicial Structure in Nepal
+
+• District Courts handle trial-level criminal cases.
+• High Courts hear appeals and serious criminal matters.
+• Supreme Court of Nepal ensures constitutional interpretation and final appeals.
+
+⸻⸻⸻⸻
+
+Key Legal Framework in Nepal
+
+• National Penal Code, 2017 (Muluki Aparadh Samhita)
+    • Defines crimes and punishments.
+• Criminal Procedure Code
+    • Governs investigation, arrest, trial, and sentencing.
+• Constitution of Nepal (2015)
+    • Guarantees fundamental rights such as:
+        • Right to life and liberty
+        • Right to fair trial
+        • Protection against torture and arbitrary detention
+
+Common Criminal Cases in Nepal
+
+Criminal law in Nepal addresses a variety of real-world offenses, including:
+
+• Domestic violence and gender-based violence cases
+• Property crimes such as theft and fraud
+• Drug-related offenses, especially in urban areas
+• Corruption and misuse of public office
+• Cybercrime and online scams
+• Homicide and serious physical assault cases
+
+⸻⸻⸻⸻
+
+Role of Criminal Law in Nepal’s Judiciary System
+
+Criminal law plays a foundational role in maintaining law and order:
+
+• Ensures public safety and security
+• Deters individuals from committing offenses
+• Protects fundamental human rights
+• Strengthens trust in law enforcement and judiciary
+• Provides structured punishment and rehabilitation
+
+The judiciary ensures that criminal trials follow due process, balancing the rights of the accused with the interests of victims and society.
+Criminal Law in Other Countries (Comparative Perspective)
+
+Criminal law systems differ globally but share core principles of justice and deterrence.
+
+Common Law Systems (e.g., UK, USA, India)
+
+• Heavy reliance on judicial precedent
+• Jury trials in some jurisdictions
+• Strong adversarial system (prosecution vs defense)
+
+Civil Law Systems (e.g., France, Germany)
+
+• Codified criminal statutes dominate
+• Judges play an active investigative role
+• Less reliance on precedent
+
+⸻⸻⸻⸻
+
+Nepal’s Position
+
+Nepal follows a mixed legal system, combining:
+
+• Codified criminal laws (civil law influence)
+• Judicial interpretation and precedent (common law influence)
+• Increasing emphasis on human rights-based justice
+
+This hybrid structure helps Nepal maintain both consistency and flexibility in criminal adjudication.
+
+⸻⸻⸻⸻
+
+Our Criminal Defense Services:
+
+• Bail petition support
+• Police case consultation
+• Court representation
+• Case strategy preparation
+• Legal documentation
+• Evidence analysis
+• Appeals and review support
+  `,
+
+  family: `
+Family Law is a branch of law that governs legal relationships within families and domestic units. It deals with personal and emotional aspects of law such as marriage, divorce, child custody, adoption, maintenance, and inheritance. Unlike many other legal fields, family law often combines legal principles with social, cultural, and humanitarian considerations.
+
+In a judiciary context, family law is essential because it directly impacts the structure of society, the protection of vulnerable individuals, and the regulation of personal relationships.
+
+⸻⸻⸻⸻
+
+Key Features of Family Law
+
+Family law is distinct due to its sensitive and personal nature:
+
+• Personal relationships: Focuses on marriage, parenthood, and family structure
+• Welfare-oriented: Prioritizes the best interests of children and dependents
+• Emotionally sensitive: Often involves conflict within close relationships
+• Court-supervised resolution: Many matters require judicial intervention for fairness
+• Blend of law and social values: Reflects cultural, religious, and societal norms
+
+⸻⸻⸻⸻
+
+Major Areas Covered Under Family Law
+
+Family law covers a wide range of domestic and personal legal matters:
+
+1. Marriage and Civil Union
+
+• Legal registration of marriage
+• Rights and duties of spouses
+• Conditions for valid marriage
+• Recognition of marital status
+
+2. Divorce and Separation
+
+• Legal dissolution of marriage
+• Grounds for divorce (mutual consent, cruelty, abandonment, etc.)
+• Division of property after separation
+• Alimony or spousal support
+
+3. Child Custody and Guardianship
+
+• Custody rights after divorce or separation
+• Best interest of the child principle
+• Visitation rights
+• Legal guardianship of minors
+
+4. Maintenance and Support
+
+• Financial support for spouse and children
+• Enforcement of maintenance orders
+• Protection of dependent family members
+
+5. Adoption and Inheritance
+
+• Legal adoption procedures
+• Rights of adopted children
+• Succession and inheritance rights
+• Property distribution after death
+
+⸻⸻⸻⸻
+
+Family Law in Nepal: Judiciary Perspective
+
+In Nepal, family law is deeply influenced by statutory provisions, cultural traditions, and constitutional guarantees. It plays a significant role in protecting family rights and maintaining social stability.
+
+Judicial Structure Handling Family Law Cases
+
+• District Courts
+    • First instance for divorce, custody, and inheritance cases
+• High Courts
+    • Appeals and complex family disputes
+• Supreme Court of Nepal
+    • Constitutional interpretation and landmark family law decisions
+
+⸻⸻⸻⸻
+
+Key Legal Framework in Nepal
+
+Family law in Nepal is mainly governed by:
+
+• National Civil Code, 2017 (Muluki Dewani Samhita)
+    • Covers marriage, divorce, property, inheritance, and family relations
+• Constitution of Nepal (2015)
+    • Guarantees equality, dignity, and protection from discrimination
+• Civil Procedure Code
+    • Governs how family disputes are filed and resolved in courts
+
+
+Common Family Law Cases in Nepal
+
+Family-related disputes in Nepal frequently include:
+
+• Divorce cases, both mutual consent and contested
+• Child custody and guardianship disputes
+• Property division between spouses after separation
+• Domestic violence and protection orders
+• Inheritance conflicts among family members
+• Maintenance claims for children or dependent spouses
+
+⸻⸻⸻⸻
+
+Role of Family Law in Nepal’s Judiciary System
+
+Family law is essential for both legal and social stability:
+
+• Protects women, children, and vulnerable family members
+• Ensures fair distribution of property and responsibilities
+• Reduces informal and socially harmful dispute resolution methods
+• Strengthens the rule of law within private life
+• Promotes peaceful resolution of family conflicts through courts
+
+
+Family Law in Other Countries (Comparative Perspective)
+
+Family law varies widely across legal systems but shares common principles of protection and fairness.
+
+Common Law Countries (e.g., UK, USA, India)
+
+• Strong judicial discretion in custody and divorce cases
+• Precedent plays a major role in decision-making
+• Emphasis on child welfare and equitable distribution
+
+Civil Law Countries (e.g., France, Germany)
+
+• Codified family laws with structured procedures
+• Judges apply statutes more strictly
+• Less reliance on precedent compared to common law systems
+
+⸻⸻⸻⸻
+
+Nepal’s Position
+
+Nepal follows a mixed legal system, where:
+
+• Codified laws under the Civil Code guide family matters
+• Judicial interpretation helps fill gaps in legislation
+• Cultural and social norms still influence family dispute resolution
+• Increasing emphasis on gender equality and human rights
+
+
+⸻⸻⸻⸻
+
+Our Family Law Services:
+
+• Divorce consultation
+• Child custody support
+• Alimony and maintenance claims
+• Family settlement agreements
+• Property partition cases
+• Inheritance dispute support
+• Court filing and representation
+
+We handle family cases with confidentiality, care, and professional responsibility.
+  `,
+
+  corporate: `
+Corporate Law is a branch of law that governs the formation, operation, management, and dissolution of companies and other business entities. It provides the legal framework within which businesses operate, ensuring transparency, accountability, and fairness in commercial activities.
+
+In a judiciary and governance context, corporate law is essential for maintaining investor confidence, regulating economic activity, and ensuring that companies operate within the boundaries of law and public interest.
+
+⸻⸻⸻⸻
+
+Key Features of Corporate Law
+
+Corporate law has a structured and regulatory nature focused on business governance:
+
+• Entity regulation: Governs companies as separate legal entities
+• Commercial focus: Deals with business operations and corporate activities
+• Compliance-driven: Requires adherence to statutory rules and reporting standards
+• Investor protection: Safeguards shareholders and stakeholders
+• Judicial oversight: Courts intervene in disputes and corporate misconduct
+
+⸻⸻⸻⸻
+
+Major Areas Covered Under Corporate Law
+
+Corporate law covers a wide spectrum of business-related legal matters:
+
+1. Company Formation and Registration
+
+• Incorporation of companies
+• Legal identity as separate entities
+• Memorandum and Articles of Association
+• Licensing and registration requirements
+
+2. Corporate Governance
+
+• Duties of directors and board members
+• Shareholder rights and responsibilities
+• Corporate decision-making processes
+• Internal compliance mechanisms
+
+3. Shareholding and Investment
+
+• Issuance and transfer of shares
+• Equity and capital structure
+• Investor rights and protections
+• Dividend distribution policies
+
+4. Mergers and Acquisitions
+
+• Company restructuring
+• Business takeovers and amalgamations
+• Due diligence processes
+• Regulatory approvals
+
+5. Corporate Disputes and Liability
+
+• Fraud and mismanagement cases
+• Shareholder disputes
+• Breach of fiduciary duty
+• Corporate insolvency and liquidation
+
+⸻⸻⸻⸻
+
+Corporate Law in Nepal: Judiciary Perspective
+
+In Nepal, corporate law plays a growing role due to increasing economic development, foreign investment, and business expansion. It is primarily regulated through statutory frameworks and enforced by regulatory bodies and courts.
+
+Judicial and Regulatory Structure
+
+• Office of Company Registrar (OCR)
+    • Handles company registration and compliance monitoring
+• District and High Courts
+    • Resolve corporate disputes and commercial litigation
+• Supreme Court of Nepal
+    • Addresses constitutional and high-level corporate legal issues
+
+⸻⸻⸻⸻
+
+    Key Legal Framework in Nepal
+
+Corporate law in Nepal is mainly governed by:
+
+• Companies Act, 2006 (Nepal)
+    • Core legislation for company formation and regulation
+• Securities Act
+    • Governs capital markets and public companies
+• Banking and Financial Institution Laws
+    • Regulate financial corporations and banking entities
+• Constitution of Nepal (2015)
+    • Ensures freedom of profession, trade, and investment protection
+
+Common Corporate Law Issues in Nepal
+
+Corporate legal matters in Nepal often include:
+
+• Company registration and compliance disputes
+• Shareholder disagreements and ownership conflicts
+• Mismanagement and allegations of fraud
+• Banking and financial irregularities
+• Foreign investment approval issues
+• Insolvency and bankruptcy cases
+
+⸻⸻⸻⸻
+
+Role of Corporate Law in Nepal’s Economy and Judiciary
+
+Corporate law plays a crucial role in strengthening Nepal’s economic and legal systems:
+
+• Promotes business transparency and accountability
+• Encourages foreign and domestic investment
+• Protects shareholders and minority investors
+• Regulates corporate conduct and prevents fraud
+• Supports economic growth and industrial development
+• Reduces commercial disputes through structured legal remedies
+
+Corporate Law in Other Countries (Comparative Perspective)
+
+Corporate law systems vary globally depending on economic structure and legal tradition.
+
+Common Law Countries (e.g., UK, USA, India)
+
+• Strong reliance on case law and judicial precedent
+• Flexible corporate structures
+• Active role of courts in shaping corporate governance
+
+Civil Law Countries (e.g., Germany, France, Japan)
+
+• Highly codified corporate regulations
+• Strict statutory compliance requirements
+• Less judicial discretion compared to common law systems
+
+⸻⸻⸻⸻
+
+Nepal’s Position
+
+Nepal follows a mixed legal system, where:
+
+• Corporate rules are primarily codified in statutes
+• Courts interpret and enforce corporate obligations
+• Regulatory bodies play a strong administrative role
+• Increasing alignment with international business standards
+
+⸻⸻⸻⸻
+
+Our Corporate Law Services:
+
+• Company registration support
+• Business contract drafting
+• Legal consultation for companies
+• Partnership dispute resolution
+• Shareholder matter support
+• Agreement review
+• Corporate documentation
+• Legal compliance guidance
+  `,
+
+  property: `
+Property Law deals with legal rights related to ownership, possession, transfer, and use of property. Within this field, property disputes refer to conflicts arising between individuals, families, or institutions over land, buildings, inheritance, tenancy, or ownership rights.
+
+In a judiciary context, property disputes are among the most frequently filed civil cases, and they play a crucial role in defining legal ownership, preventing conflict escalation, and ensuring lawful distribution of assets.
+
+
+⸻⸻⸻⸻
+
+Key Features of Property Disputes
+
+Property disputes are typically complex due to emotional, financial, and legal factors:
+
+• Ownership conflicts: Disagreement over who legally owns property
+• Documentation-based: Strong reliance on land records and legal documents
+• Family involvement: Many disputes arise within families and inheritance cases
+• Long-term disputes: Often remain unresolved for years due to complexity
+• Judicial dependency: Courts play a central role in final resolution
+
+⸻⸻⸻⸻
+
+Major Types of Property Disputes
+
+1. Land Ownership Disputes
+
+• Conflicts over land titles and registration
+• Boundary and encroachment issues
+• Disputes due to unclear land records
+
+2. Inheritance and Succession Disputes
+
+• Division of ancestral property
+• Conflicts among heirs and family members
+• Validity of wills and succession rights
+
+3. Boundary Disputes
+
+• Disagreement over land demarcation
+• Overlapping land measurements
+• Encroachment by neighbors
+
+4. Tenancy and Lease Disputes
+
+• Rent non-payment or eviction cases
+• Lease agreement violations
+• Tenant vs landlord conflicts
+
+5. Property Fraud and Forgery
+
+• Fake land ownership documents
+• Illegal sale or transfer of property
+• Identity fraud in property transactions
+
+⸻⸻⸻⸻
+
+Property Disputes in Nepal: Judiciary Perspective
+
+In Nepal, property disputes are one of the most common categories of civil litigation due to land-based economy, family inheritance systems, and evolving urbanization.
+
+Judicial Structure Handling Property Cases
+
+• District Courts
+    • First instance for land and property disputes
+• High Courts
+    • Appeals and complex property litigation
+• Supreme Court of Nepal
+    • Constitutional interpretation and landmark rulings on property rights
+
+Legal Framework in Nepal
+
+Property disputes in Nepal are primarily governed by:
+
+• National Civil Code, 2017 (Muluki Dewani Samhita)
+    • Governs ownership, inheritance, and property transfer
+• Land Act and Land Revenue Laws
+    • Regulate land registration and administration
+• Constitution of Nepal (2015)
+    • Guarantees the right to property as a fundamental legal right (subject to law)
+• Civil Procedure Code
+    • Defines court procedures for property litigation
+
+Common Causes of Property Disputes in Nepal
+
+• Weak or outdated land record systems
+• Informal property transfers without legal documentation
+• Joint family property division conflicts
+• Urban expansion leading to boundary confusion
+• Lack of awareness of legal ownership procedures
+• Fraudulent land sales or double ownership claims
+
+⸻⸻⸻⸻
+
+Role of Judiciary in Property Disputes in Nepal
+
+The judiciary plays a critical role in ensuring fairness and legal certainty:
+
+• Confirms legal ownership and title rights
+• Resolves boundary and inheritance conflicts
+• Prevents illegal occupation and encroachment
+• Ensures proper interpretation of land laws
+• Strengthens rule of law in property transactions
+
+Courts rely heavily on documentary evidence, land surveys, witness statements, and legal records to determine rightful ownership.
+
+Property Disputes in Other Countries (Comparative Perspective)
+
+Common Law Countries (e.g., UK, USA, India)
+
+• Strong reliance on land registration systems
+• Courts play a major role in interpreting ownership rights
+• Easier enforcement of property judgments
+
+Civil Law Countries (e.g., France, Germany)
+
+• Highly structured land registry systems
+• Strong documentary proof requirements
+• Less ambiguity due to codified property laws
+
+⸻⸻⸻⸻
+
+Nepal’s Position
+
+Nepal follows a mixed legal system, where:
+
+• Property rights are defined by codified civil law
+• Courts interpret disputes based on evidence and statutes
+• Administrative land registration systems are crucial but still developing
+• Informal transactions still create legal complexity
+
+⸻⸻⸻⸻
+
+Our Property Law Services:
+
+• Land ownership case support
+• Boundary dispute handling
+• Partition case filing
+• Property document verification
+• Land transfer legal support
+• Tenancy dispute support
+• Court representation
+• Settlement and mediation support
+  `,
+
+  documentation: `
+Legal Documentation refers to the structured process of creating, verifying, and preserving written records that have legal validity and enforceable value. These documents serve as official evidence in legal, administrative, and judicial proceedings.
+
+In a judiciary context, legal documentation is fundamental because it ensures clarity of rights, prevents disputes, and provides reliable proof in courts when conflicts arise.
+
+⸻⸻⸻⸻
+
+Key Features of Legal Documentation
+
+Legal documentation is essential for ensuring legal certainty and accountability:
+
+• Written legal proof: Serves as evidence in courts and institutions
+• Standardized format: Follows legal structure and formal requirements
+• Legally enforceable: Can be used to enforce rights and obligations
+• Authenticity required: Must be verified, signed, and often witnessed
+• Permanent record: Maintained for future reference and dispute resolution
+
+⸻⸻⸻⸻
+
+Major Types of Legal Documents
+
+1. Contractual Documents
+
+• Agreements between individuals or organizations
+• Employment contracts
+• Business and service agreements
+• Sale and purchase contracts
+
+2. Property Documents
+
+• Land ownership certificates
+• Sale deeds and transfer papers
+• Lease and rental agreements
+• Boundary and survey records
+
+3. Family and Personal Documents
+
+• Marriage registration certificates
+• Divorce decrees
+• Adoption papers
+• Wills and inheritance documents
+
+4. Corporate Documents
+
+• Company registration certificates
+• Memorandum and Articles of Association
+• Shareholder agreements
+• Board resolutions
+
+5. Court and Judicial Documents
+
+• Case filings and petitions
+• Judgments and orders
+• Affidavits and sworn statements
+• Legal notices
+
+⸻⸻⸻⸻
+
+Legal Documentation in Nepal: Judiciary Perspective
+
+In Nepal, legal documentation plays a central role in both civil and criminal justice systems. Courts heavily rely on documentary evidence to establish facts and determine legal rights.
+
+Importance in Judicial Process
+
+• Primary evidence in most civil disputes
+• Essential in property and inheritance cases
+• Supports investigation in criminal proceedings
+• Used for verifying identity, ownership, and agreements
+• Ensures transparency in legal transactions
+
+⸻⸻⸻⸻
+
+Key Legal Framework in Nepal
+
+Legal documentation in Nepal is governed by multiple legal instruments:
+
+• Evidence Act, 2031 (1974)
+    • Governs admissibility and evaluation of documentary evidence
+• National Civil Code, 2017
+    • Requires formal documentation for contracts, property, and family matters
+• Civil Procedure Code
+    • Regulates filing and submission of legal documents in court
+• Electronic Transactions Act
+    • Recognizes digital and electronic records as legally valid
+
+⸻⸻⸻⸻
+
+Common Issues in Legal Documentation in Nepal
+
+• Weak record-keeping systems in rural areas
+• Forgery and fake documents in property transactions
+• Lack of awareness about legal procedures
+• Informal or verbal agreements without written proof
+• Delays in registration and certification processes
+• Inconsistencies in land and ownership records
+
+⸻⸻⸻⸻
+
+Role of Legal Documentation in Nepal’s Judiciary System
+
+Legal documentation is crucial for ensuring justice and legal certainty:
+
+• Provides reliable evidence in court proceedings
+• Helps establish ownership, rights, and obligations
+• Reduces fraud and misrepresentation
+• Strengthens transparency in governance and transactions
+• Supports efficient dispute resolution
+• Enhances rule of law and accountability
+
+⸻⸻⸻⸻
+
+Legal Documentation in Other Countries (Comparative Perspective)
+
+Common Law Countries (e.g., UK, USA, India)
+
+• Strong reliance on written contracts and evidence
+• Digital documentation widely accepted in courts
+• Detailed procedural documentation in litigation
+
+Civil Law Countries (e.g., Germany, France)
+
+• Highly formalized documentation systems
+• Strict legal templates for contracts and filings
+• Strong registry systems for property and civil status
+
+⸻⸻⸻⸻
+
+Nepal’s Position
+
+Nepal follows a mixed legal system, where:
+
+• Written documentation is essential for legal validity
+• Courts rely heavily on documentary evidence
+• Digital documentation is growing but still developing
+• Administrative systems are improving but face enforcement challenges
+
+  `
+};
+
 function openCase(title, description) {
   document.getElementById("caseTitle").innerText = title;
   document.getElementById("caseDescription").innerText = description;
 
-  document.getElementById("caseModal").classList.remove("hidden");
-  document.getElementById("caseModal").classList.add("flex");
+  const modal = document.getElementById("caseModal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
 
   document.body.style.overflow = "hidden";
 }
 
 function closeCase() {
-  document.getElementById("caseModal").classList.remove("flex");
-  document.getElementById("caseModal").classList.add("hidden");
+  const modal = document.getElementById("caseModal");
+  modal.classList.remove("flex");
+  modal.classList.add("hidden");
 
   document.body.style.overflow = "auto";
 }
-</script>
-
 </script>
 
   <!-- Team -->
