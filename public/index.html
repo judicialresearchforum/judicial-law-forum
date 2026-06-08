@@ -1784,7 +1784,8 @@ function closeCase() {
  
 
 
-  <!-- PHOTO GALLERY -->
+  
+ <!-- PHOTO GALLERY -->
 <section id="gallery" class="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-stone-100 via-white to-stone-200 overflow-hidden">
 
   <div class="max-w-7xl mx-auto">
@@ -1802,144 +1803,192 @@ function closeCase() {
       </p>
 
     </div>
-
     <!-- Masonry Style Gallery -->
-    <div id="photoGallery" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-5 space-y-5">
+    <div
+      id="photoGallery"
+      class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-5 space-y-5"
+    ></div>
 
-      <!-- PHOTO 1 -->
-      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
-
-        <img src="photos/1.jpg"
-          class="w-full object-cover transition duration-500 group-hover:scale-110">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-
-      </div>
-
-      <!-- PHOTO 2 -->
-      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
-
-        <img src="photos/2.jpg"
-          class="w-full object-cover transition duration-500 group-hover:scale-110">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-
-      </div>
-
-      <!-- PHOTO 3 -->
-      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
-
-        <img src="photos/3.jpg"
-          class="w-full object-cover transition duration-500 group-hover:scale-110">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-
-      </div>
-
-      <!-- PHOTO 4 -->
-      <div class="relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200">
-
-        <img src="photos/4.jpg"
-          class="w-full object-cover transition duration-500 group-hover:scale-110">
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-
-      </div>
-
-    </div>
-
-    <!-- BUTTON -->
+    <!-- Button -->
     <div class="text-center mt-16">
-
       <button
+        id="loadMoreBtn"
         onclick="loadMorePhotos()"
-        class="bg-stone-800 hover:bg-stone-700 text-white px-8 sm:px-10 py-4 rounded-full text-base sm:text-lg font-semibold shadow-xl transition duration-300">
+        class="bg-stone-800 hover:bg-stone-700 text-white px-8 sm:px-10 py-4 rounded-full text-base sm:text-lg font-semibold shadow-xl transition duration-300"
+      >
         View More Memories
       </button>
-
     </div>
 
   </div>
-
 </section>
 
-  <script>
-    let currentPhoto = 1;
-    let loadedPhotos = 4;
-    const totalPhotos = 500;
-    const photosPerLoad = 24;
+<!-- Photo Lightbox -->
+<div
+  id="photoLightbox"
+  class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[9999] px-4"
+>
+  <!-- Close Button -->
+  <button
+    onclick="closePhoto()"
+    class="absolute top-5 right-6 text-white text-5xl font-bold hover:text-red-400 transition"
+  >
+    ×
+  </button>
 
-    function createPhotoCard(photoNumber) {
-      const wrapper = document.createElement("div");
-      wrapper.className = "break-inside-avoid group relative overflow-hidden rounded-3xl bg-white/10 border border-white/10 shadow-2xl cursor-pointer mb-5 hover:-translate-y-2 transition duration-300";
-      wrapper.onclick = function () {
-        openPhoto(photoNumber);
-      };
+  <!-- Previous Button -->
+  <button
+    onclick="previousPhoto()"
+    class="absolute left-4 md:left-10 text-white text-5xl font-bold hover:text-stone-300 transition"
+  >
+    ‹
+  </button>
 
-      wrapper.innerHTML = `
-        <img
-          src="photos/${photoNumber}.jpg"
-          alt="Gallery Photo ${photoNumber}"
-          class="w-full object-cover group-hover:scale-110 transition duration-700"
-          loading="lazy"
-          onerror="this.parentElement.style.display='none'"
-        >
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
-        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300">
-          <p class="text-white font-bold text-lg">Photo ${photoNumber}</p>
-          <p class="text-gray-300 text-sm">Click to view full size</p>
-        </div>
-      `;
+  <!-- Image -->
+  <div class="text-center max-w-5xl w-full">
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Gallery Photo"
+      class="max-h-[80vh] mx-auto rounded-3xl shadow-2xl object-contain"
+    >
 
-      return wrapper;
-    }
+    <p id="photoNumber" class="text-white mt-5 text-lg"></p>
+  </div>
 
-    function loadMorePhotos() {
-      const gallery = document.getElementById("photoGallery");
-      const start = loadedPhotos + 1;
-      const end = Math.min(loadedPhotos + photosPerLoad, totalPhotos);
+  <!-- Next Button -->
+  <button
+    onclick="nextPhoto()"
+    class="absolute right-4 md:right-10 text-white text-5xl font-bold hover:text-stone-300 transition"
+  >
+    ›
+  </button>
+</div>
 
-      for (let i = start; i <= end; i++) {
-        gallery.appendChild(createPhotoCard(i));
-      }
+<script>
+  let currentPhoto = 1;
+  let loadedPhotos = 0;
 
-      loadedPhotos = end;
-    }
+  const totalPhotos = 500;
+  const firstLoad = 4;
+  const photosPerLoad = 24;
 
-    function openPhoto(photoNumber) {
-      currentPhoto = photoNumber;
-      document.getElementById("lightboxImage").src = `photos/${photoNumber}.jpg`;
-      document.getElementById("photoNumber").innerText = `Photo ${photoNumber} of ${totalPhotos}`;
-      document.getElementById("photoLightbox").classList.remove("hidden");
-      document.getElementById("photoLightbox").classList.add("flex");
-      document.body.style.overflow = "hidden";
-    }
 
-    function closePhoto() {
-      document.getElementById("photoLightbox").classList.remove("flex");
-      document.getElementById("photoLightbox").classList.add("hidden");
-      document.body.style.overflow = "auto";
-    }
 
-    function nextPhoto() {
-      currentPhoto = currentPhoto >= totalPhotos ? 1 : currentPhoto + 1;
-      openPhoto(currentPhoto);
-    }
+  const initialPhotos = [
+    "office1.png",
+    "office2.png",
+    "office3.png",
+    "office4.png"
+  ];
 
-    function previousPhoto() {
-      currentPhoto = currentPhoto <= 1 ? totalPhotos : currentPhoto - 1;
-      openPhoto(currentPhoto);
-    }
+  function createPhotoCard(photoSrc, photoNumber) {
+    const wrapper = document.createElement("div");
 
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closePhoto();
-      if (event.key === "ArrowRight") nextPhoto();
-      if (event.key === "ArrowLeft") previousPhoto();
+    wrapper.className =
+      "break-inside-avoid relative overflow-hidden rounded-[30px] shadow-xl group bg-white border border-stone-200 mb-5 cursor-pointer hover:-translate-y-2 transition duration-300";
+
+    wrapper.onclick = function () {
+      openPhoto(photoNumber);
+    };
+
+    wrapper.innerHTML = `
+      <img
+        src="${photoSrc}"
+        alt="Gallery Photo ${photoNumber}"
+        class="w-full object-cover transition duration-500 group-hover:scale-110"
+        loading="lazy"
+        onerror="this.parentElement.style.display='none'"
+      >
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+
+      <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300">
+        <p class="text-white font-bold text-lg">Photo ${photoNumber}</p>
+        <p class="text-gray-200 text-sm">Click to view full size</p>
+      </div>
+    `;
+
+    return wrapper;
+  }
+
+  function loadInitialPhotos() {
+    const gallery = document.getElementById("photoGallery");
+
+    initialPhotos.forEach(function (photoSrc, index) {
+      gallery.appendChild(createPhotoCard(photoSrc, index + 1));
     });
 
-    document.addEventListener("DOMContentLoaded", loadMorePhotos);
-  </script>
+    loadedPhotos = firstLoad;
+  }
 
+  function loadMorePhotos() {
+    const gallery = document.getElementById("photoGallery");
+
+    const start = loadedPhotos + 1;
+    const end = Math.min(loadedPhotos + photosPerLoad, totalPhotos);
+
+    for (let i = start; i <= end; i++) {
+      gallery.appendChild(createPhotoCard(`photos/${i}.jpg`, i));
+    }
+
+    loadedPhotos = end;
+
+    if (loadedPhotos >= totalPhotos) {
+      document.getElementById("loadMoreBtn").style.display = "none";
+    }
+  }
+
+  function getPhotoSrc(photoNumber) {
+    if (photoNumber >= 1 && photoNumber <= 4) {
+      return initialPhotos[photoNumber - 1];
+    }
+
+    return `photos/${photoNumber}.jpg`;
+  }
+
+  function openPhoto(photoNumber) {
+    currentPhoto = photoNumber;
+
+    document.getElementById("lightboxImage").src = getPhotoSrc(photoNumber);
+    document.getElementById("photoNumber").innerText =
+      `Photo ${photoNumber} of ${totalPhotos}`;
+
+    document.getElementById("photoLightbox").classList.remove("hidden");
+    document.getElementById("photoLightbox").classList.add("flex");
+
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePhoto() {
+    document.getElementById("photoLightbox").classList.remove("flex");
+    document.getElementById("photoLightbox").classList.add("hidden");
+
+    document.body.style.overflow = "auto";
+  }
+
+  function nextPhoto() {
+    currentPhoto = currentPhoto >= totalPhotos ? 1 : currentPhoto + 1;
+    openPhoto(currentPhoto);
+  }
+
+  function previousPhoto() {
+    currentPhoto = currentPhoto <= 1 ? totalPhotos : currentPhoto - 1;
+    openPhoto(currentPhoto);
+  }
+
+  document.addEventListener("keydown", function (event) {
+    const lightbox = document.getElementById("photoLightbox");
+
+    if (lightbox.classList.contains("hidden")) return;
+
+    if (event.key === "Escape") closePhoto();
+    if (event.key === "ArrowRight") nextPhoto();
+    if (event.key === "ArrowLeft") previousPhoto();
+  });
+
+  document.addEventListener("DOMContentLoaded", loadInitialPhotos);
+</script>
 
 <!-- PHOTO LIGHTBOX -->
 <div id="photoLightbox" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999] p-4">
@@ -1951,6 +2000,7 @@ function closeCase() {
   </div>
   <button onclick="nextPhoto()" class="absolute right-3 sm:right-8 text-white text-4xl sm:text-6xl font-bold bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16">›</button>
 </div>
+
 
   <!-- Contact -->
   <section id="contact" class="py-14 sm:py-20 px-4 sm:px-6">
