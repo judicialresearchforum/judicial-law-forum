@@ -11,6 +11,10 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/test", (req, res) => {
+  res.send("Backend is working");
+});
+
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
